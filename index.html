@@ -1,232 +1,382 @@
+import { Gift, Heart, Cake, Plane, MessageCircle, Globe2, Star, Sparkles, ShoppingBag, Flower2 } from "lucide-react";
+import { motion } from "framer-motion";
+
 export default function SendHappySurprisesWebsite() {
-  const countries = ["Nepal", "Japan", "Australia", "India"];
+  const destinations = [
+    {
+      name: "Nepal",
+      desc: "Fast, thoughtful gifting support across Nepal for birthdays, family celebrations, festivals, and custom surprise deliveries.",
+      badge: "All-over Nepal",
+    },
+    {
+      name: "Japan",
+      desc: "Elegant surprise gifting support for loved ones in selected Japanese cities, subject to product and delivery availability.",
+      badge: "Selected cities",
+    },
+    {
+      name: "Australia",
+      desc: "Reliable gifting across Australia for birthdays, anniversaries, hampers, flowers, and curated celebration packages.",
+      badge: "Nationwide support",
+    },
+    {
+      name: "India",
+      desc: "Flexible gifting coordination for major celebrations, festive gifting, and personalized surprise packages.",
+      badge: "Popular occasions",
+    },
+  ];
+
   const collections = [
     {
-      title: "Birthday Surprises",
-      desc: "Cakes, flowers, balloons, and curated gift boxes for unforgettable birthdays.",
-      icon: "🎂",
+      title: "Birthday Magic",
+      desc: "Cakes, balloons, flowers, gift boxes, and joyful surprise setups for all ages.",
+      icon: Cake,
+      price: "From $35",
     },
     {
       title: "Love & Romance",
-      desc: "Thoughtful gifts for anniversaries, Valentine’s Day, and meaningful moments.",
-      icon: "💝",
+      desc: "Anniversary gifts, Valentine’s surprises, flowers, chocolates, and thoughtful keepsakes.",
+      icon: Heart,
+      price: "From $45",
     },
     {
-      title: "Festive Hampers",
-      desc: "Seasonal hampers and celebration gifts for family, friends, and corporate gifting.",
-      icon: "🎁",
+      title: "Luxury Hampers",
+      desc: "Premium snack boxes, self-care gifts, festive hampers, and elegant curated packages.",
+      icon: Gift,
+      price: "From $55",
     },
     {
-      title: "Custom Orders",
-      desc: "Personalized surprise packages tailored to your budget, message, and occasion.",
-      icon: "✨",
+      title: "Custom Surprises",
+      desc: "Tell us the city, occasion, budget, and style — we’ll help create something special.",
+      icon: Sparkles,
+      price: "Custom quote",
     },
   ];
 
   const steps = [
     {
-      title: "Choose a surprise",
-      desc: "Select a gift category and share the delivery country, city, occasion, and budget.",
+      title: "Tell us what you need",
+      desc: "Share the country, city, occasion, preferred delivery date, and budget.",
+      icon: MessageCircle,
     },
     {
-      title: "Confirm your order",
-      desc: "We coordinate the best available gifting options with smooth order confirmation.",
+      title: "Choose your surprise",
+      desc: "We suggest the best available gifts and delivery options for that destination.",
+      icon: ShoppingBag,
     },
     {
-      title: "Deliver happiness",
-      desc: "Your surprise is delivered with care across Nepal and selected destinations worldwide.",
+      title: "We deliver happiness",
+      desc: "Your order is coordinated with care so your loved one receives a memorable surprise.",
+      icon: Plane,
     },
   ];
 
   const highlights = [
     "Worldwide gifting support",
-    "Special delivery focus in Nepal, Japan, Australia, and India",
-    "Personalized surprise curation",
-    "Ideal for birthdays, anniversaries, festivals, and special occasions",
+    "Special focus: Nepal, Japan, Australia, India",
+    "Custom surprise planning",
+    "Instagram & WhatsApp ordering",
+  ];
+
+  const reviews = [
+    {
+      name: "Aarati",
+      text: "I ordered a birthday surprise for my sister in Kathmandu and the coordination was so smooth. It felt personal and thoughtful.",
+    },
+    {
+      name: "Rohan",
+      text: "Perfect for sending gifts from overseas. The team helped me arrange flowers and a custom hamper for my parents.",
+    },
+    {
+      name: "Mina",
+      text: "Beautiful concept and very easy to order. Great option for special occasions when you want something heartfelt.",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-white text-slate-800">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+    <div className="min-h-screen bg-gradient-to-b from-rose-50 via-white to-amber-50 text-slate-800">
+      <header className="sticky top-0 z-50 border-b border-rose-100 bg-white/85 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full border border-pink-200 bg-pink-50 text-2xl">
-              🎁
-            </div>
+            <img
+              src="/logo.png"
+              alt="Send Happy Surprises Logo"
+              className="h-14 w-14 rounded-full border border-rose-200 bg-white object-contain p-1 shadow-sm"
+            />
             <div>
               <div className="text-xl font-bold tracking-tight text-slate-900">Send Happy Surprises</div>
-              <div className="text-xs font-medium uppercase tracking-[0.25em] text-pink-500">Global Gifting Made Easy</div>
+              <div className="text-xs font-semibold uppercase tracking-[0.28em] text-rose-500">
+                Gifts Across Borders
+              </div>
             </div>
           </div>
-          <nav className="hidden gap-6 text-sm font-medium md:flex">
-            <a href="#collections" className="hover:text-pink-500">Collections</a>
-            <a href="#how-it-works" className="hover:text-pink-500">How It Works</a>
-            <a href="#delivery" className="hover:text-pink-500">Delivery</a>
-            <a href="#contact" className="hover:text-pink-500">Contact</a>
+
+          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
+            <a href="#collections" className="transition hover:text-rose-500">Collections</a>
+            <a href="#destinations" className="transition hover:text-rose-500">Destinations</a>
+            <a href="#how-it-works" className="transition hover:text-rose-500">How It Works</a>
+            <a href="#reviews" className="transition hover:text-rose-500">Reviews</a>
+            <a
+              href="#contact"
+              className="rounded-full bg-slate-900 px-4 py-2 text-white transition hover:-translate-y-0.5"
+            >
+              Order Now
+            </a>
           </nav>
         </div>
       </header>
 
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-amber-50" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
-          <div>
-            <div className="mb-4 inline-flex items-center rounded-full border border-pink-200 bg-white px-4 py-2 text-sm font-medium text-pink-600 shadow-sm">
-              Delivering gifts across Nepal, Japan, Australia, India & more
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(251,113,133,0.18),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(251,191,36,0.18),_transparent_30%)]" />
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:items-center md:py-24">
+          <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-rose-200 bg-white px-4 py-2 text-sm font-medium text-rose-600 shadow-sm">
+              <Globe2 className="h-4 w-4" /> Worldwide gifting with special support in Nepal, Japan, Australia & India
             </div>
-            <h1 className="max-w-2xl text-4xl font-bold leading-tight tracking-tight text-slate-900 md:text-6xl">
-              Send thoughtful gifts and joyful surprises worldwide.
+
+            <h1 className="max-w-2xl text-5xl font-bold leading-tight tracking-tight text-slate-900 md:text-6xl">
+              Send love, joy, and thoughtful surprises anywhere that matters.
             </h1>
+
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              We help you celebrate birthdays, love, festivals, and meaningful moments with carefully curated gifts and surprise deliveries — with a special focus on Nepal, Japan, Australia, and India.
+              From birthdays and anniversaries to festive hampers and custom surprises, we help you celebrate loved ones near and far with gifts curated for memorable moments.
             </p>
+
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#contact"
-                className="rounded-2xl bg-pink-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-200 transition hover:-translate-y-0.5"
+                className="rounded-full bg-rose-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-rose-200 transition hover:-translate-y-0.5"
               >
-                Order a Surprise
+                Send a Surprise
               </a>
               <a
                 href="#collections"
-                className="rounded-2xl border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-pink-300 hover:text-pink-500"
+                className="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-rose-300 hover:text-rose-500"
               >
-                Explore Collections
+                View Gift Ideas
               </a>
             </div>
+
             <div className="mt-10 grid gap-3 sm:grid-cols-2">
               {highlights.map((item) => (
-                <div key={item} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm">
+                <div key={item} className="rounded-2xl border border-white bg-white/80 px-4 py-3 text-sm text-slate-700 shadow-sm">
                   {item}
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="rounded-[2rem] border border-pink-100 bg-white p-6 shadow-2xl shadow-pink-100">
-              <div className="rounded-[1.5rem] bg-gradient-to-br from-pink-100 via-white to-amber-100 p-8">
-                <div className="mx-auto flex h-40 w-40 items-center justify-center rounded-full border border-pink-200 bg-white text-7xl shadow-lg">
-                  🎀
-                </div>
-                <div className="mt-6 text-center">
-                  <h2 className="text-2xl font-bold text-slate-900">Curated with care</h2>
-                  <p className="mt-3 text-slate-600">
-                    From heartfelt hampers to celebration gifts, every surprise is designed to create a memorable experience.
-                  </p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="relative"
+          >
+            <div className="absolute -left-6 top-10 hidden rounded-3xl bg-white p-4 shadow-xl lg:block">
+              <div className="flex items-center gap-3">
+                <Flower2 className="h-5 w-5 text-rose-400" />
+                <div>
+                  <div className="text-sm font-semibold text-slate-900">Fresh & curated</div>
+                  <div className="text-xs text-slate-500">Thoughtful gifting options</div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="delivery" className="mx-auto max-w-7xl px-6 py-16">
-        <div className="rounded-[2rem] bg-slate-900 px-8 py-10 text-white shadow-2xl">
-          <div className="grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-pink-300">Delivery Coverage</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
-                Special gifting support across four key markets.
-              </h2>
-              <p className="mt-4 max-w-2xl text-slate-300">
-                We are especially focused on deliveries throughout Nepal and selected gifting solutions across Japan, Australia, and India, with worldwide support available based on product type and destination.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {countries.map((country) => (
-                <div key={country} className="rounded-2xl bg-white/10 px-4 py-5 text-center text-base font-semibold backdrop-blur">
-                  {country}
+            <div className="absolute -right-5 bottom-12 hidden rounded-3xl bg-slate-900 p-4 text-white shadow-xl lg:block">
+              <div className="flex items-center gap-3">
+                <Star className="h-5 w-5 text-amber-300" />
+                <div>
+                  <div className="text-sm font-semibold">Easy ordering</div>
+                  <div className="text-xs text-slate-300">WhatsApp & Instagram</div>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section id="collections" className="mx-auto max-w-7xl px-6 py-8">
-        <div className="max-w-2xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-pink-500">Collections</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-            Gifts for every moment that matters.
-          </h2>
-          <p className="mt-4 text-slate-600">
-            Choose from popular surprise categories or request a fully customized gifting experience.
-          </p>
-        </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {collections.map((item) => (
-            <div key={item.title} className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-              <div className="text-4xl">{item.icon}</div>
-              <h3 className="mt-5 text-xl font-bold text-slate-900">{item.title}</h3>
-              <p className="mt-3 leading-7 text-slate-600">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="how-it-works" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="rounded-[2rem] bg-amber-50 p-8 md:p-12">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-600">How It Works</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-              A simple process from order to delivery.
-            </h2>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {steps.map((step, index) => (
-              <div key={step.title} className="rounded-[1.5rem] bg-white p-6 shadow-sm">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-pink-500 text-lg font-bold text-white">
-                  {index + 1}
+            <div className="rounded-[2rem] border border-rose-100 bg-white p-5 shadow-2xl shadow-rose-100">
+              <div className="rounded-[1.75rem] bg-gradient-to-br from-rose-100 via-white to-amber-100 p-8">
+                <img
+                  src="/logo.png"
+                  alt="Send Happy Surprises"
+                  className="mx-auto h-48 w-48 rounded-full bg-white object-contain p-4 shadow-lg"
+                />
+                <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl bg-white p-4 shadow-sm">
+                    <div className="text-sm font-semibold text-slate-900">Birthday & Celebration Gifts</div>
+                    <div className="mt-1 text-sm text-slate-500">Cakes, balloons, hampers, flowers</div>
+                  </div>
+                  <div className="rounded-2xl bg-white p-4 shadow-sm">
+                    <div className="text-sm font-semibold text-slate-900">Cross-border Surprise Support</div>
+                    <div className="mt-1 text-sm text-slate-500">Ideal for families abroad</div>
+                  </div>
                 </div>
-                <h3 className="mt-5 text-xl font-bold text-slate-900">{step.title}</h3>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-6">
+        <div className="grid gap-6 md:grid-cols-3">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <div key={step.title} className="rounded-[1.75rem] border border-rose-100 bg-white p-6 shadow-sm">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-100 text-rose-600">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="mt-4 flex items-center gap-2">
+                  <span className="text-xs font-semibold uppercase tracking-[0.24em] text-rose-400">Step {index + 1}</span>
+                </div>
+                <h3 className="mt-2 text-xl font-bold text-slate-900">{step.title}</h3>
                 <p className="mt-3 leading-7 text-slate-600">{step.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="collections" className="mx-auto max-w-7xl px-6 py-16">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-rose-500">Popular Collections</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+              Customer-friendly gift categories for every occasion.
+            </h2>
+            <p className="mt-4 text-slate-600">
+              Start with our most-loved collections or request a completely personalized surprise experience.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {collections.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="group rounded-[2rem] border border-rose-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-rose-100 to-amber-100 text-rose-600">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <div className="mt-5 inline-block rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+                  {item.price}
+                </div>
+                <h3 className="mt-4 text-xl font-bold text-slate-900">{item.title}</h3>
+                <p className="mt-3 leading-7 text-slate-600">{item.desc}</p>
+                <a href="#contact" className="mt-5 inline-flex text-sm font-semibold text-rose-500 transition group-hover:translate-x-1">
+                  Enquire now →
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      <section id="destinations" className="mx-auto max-w-7xl px-6 py-2">
+        <div className="rounded-[2.2rem] bg-slate-900 px-8 py-10 text-white shadow-2xl">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-rose-300">Delivery Destinations</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">
+              Special focus across four key gifting markets.
+            </h2>
+            <p className="mt-4 text-slate-300">
+              We support worldwide gifting and provide extra attention to orders for Nepal, Japan, Australia, and India.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {destinations.map((country) => (
+              <div key={country.name} className="rounded-[1.75rem] bg-white/10 p-5 backdrop-blur">
+                <div className="inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-rose-100">
+                  {country.badge}
+                </div>
+                <h3 className="mt-4 text-xl font-bold">{country.name}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-300">{country.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 pb-20">
-        <div className="grid gap-8 md:grid-cols-2">
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-pink-500">Why Choose Us</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">Personal, flexible, and celebration-focused.</h2>
-            <ul className="mt-6 space-y-4 text-slate-600">
-              <li>• Tailored gift options based on occasion, recipient, country, and budget.</li>
-              <li>• Ideal for family gifting, romantic surprises, festive moments, and special milestones.</li>
-              <li>• Friendly support for cross-border gifting and personalized order coordination.</li>
-            </ul>
+      <section id="reviews" className="mx-auto max-w-7xl px-6 py-16">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-rose-500">Customer Love</p>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
+            Warm, trustworthy, and gift-focused.
+          </h2>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-3">
+          {reviews.map((review) => (
+            <div key={review.name} className="rounded-[1.75rem] border border-rose-100 bg-white p-6 shadow-sm">
+              <div className="mb-4 flex gap-1 text-amber-400">
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+                <Star className="h-4 w-4 fill-current" />
+              </div>
+              <p className="leading-7 text-slate-600">“{review.text}”</p>
+              <div className="mt-5 text-sm font-semibold text-slate-900">{review.name}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+          <div className="rounded-[2rem] bg-gradient-to-br from-rose-500 to-pink-500 p-8 text-white shadow-xl shadow-rose-200">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-rose-100">Why Customers Choose Us</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight">A more personal way to send gifts internationally.</h2>
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="rounded-2xl bg-white/15 p-4">Carefully coordinated gifting support</div>
+              <div className="rounded-2xl bg-white/15 p-4">Flexible options for different budgets</div>
+              <div className="rounded-2xl bg-white/15 p-4">Great for families living abroad</div>
+              <div className="rounded-2xl bg-white/15 p-4">Custom surprises for meaningful moments</div>
+            </div>
           </div>
 
-          <div id="contact" className="rounded-[2rem] bg-pink-500 p-8 text-white shadow-xl shadow-pink-200">
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-pink-100">Contact</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight">Ready to send a surprise?</h2>
-            <p className="mt-4 max-w-lg text-pink-50">
-              Share the recipient’s country, city, occasion, budget, and preferred delivery date. We’ll help you plan the perfect gift.
+          <div id="contact" className="rounded-[2rem] border border-rose-100 bg-white p-8 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-rose-500">Contact</p>
+            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">Ready to place an order?</h2>
+            <p className="mt-4 leading-7 text-slate-600">
+              Send us the recipient’s country, city, occasion, budget, and preferred delivery date. We’ll help you arrange the perfect surprise.
             </p>
-            <div className="mt-8 space-y-4 text-base">
-              <div>
-                <div className="text-sm font-semibold uppercase tracking-wide text-pink-100">Email</div>
-                <div>hello@sendhappysurprises.com</div>
+
+            <div className="mt-8 space-y-4 text-sm">
+              <div className="rounded-2xl bg-rose-50 p-4">
+                <div className="font-semibold text-slate-900">Email</div>
+                <div className="mt-1 text-slate-600">hello@sendhappysurprises.com</div>
               </div>
-              <div>
-                <div className="text-sm font-semibold uppercase tracking-wide text-pink-100">Instagram</div>
-                <div>@sendhappysurprises</div>
+              <div className="rounded-2xl bg-rose-50 p-4">
+                <div className="font-semibold text-slate-900">Instagram</div>
+                <div className="mt-1 text-slate-600">@sendhappysurprises</div>
               </div>
-              <div>
-                <div className="text-sm font-semibold uppercase tracking-wide text-pink-100">WhatsApp</div>
-                <div>+61 XXX XXX XXX</div>
+              <div className="rounded-2xl bg-rose-50 p-4">
+                <div className="font-semibold text-slate-900">WhatsApp</div>
+                <div className="mt-1 text-slate-600">+61 XXX XXX XXX</div>
               </div>
             </div>
+
+            <a
+              href="https://instagram.com/sendhappysurprises"
+              className="mt-6 inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5"
+            >
+              Message Us on Instagram
+            </a>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white">
+      <section className="mx-auto max-w-7xl px-6 pb-10">
+        <div className="rounded-[1.75rem] border border-dashed border-slate-300 bg-white/70 p-6 text-sm text-slate-600">
+          <div className="font-semibold text-slate-900">Before you publish</div>
+          <div className="mt-2">Upload your logo file as <span className="font-mono">logo.png</span> in the project root or public folder.</div>
+          <div className="mt-2">Replace the placeholder contact details with your real email, Instagram, and WhatsApp number.</div>
+          <div className="mt-2">Change the example reviews to real customer reviews once you start taking orders.</div>
+        </div>
+      </section>
+
+      <footer className="border-t border-rose-100 bg-white/80">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
           <div>© 2026 Send Happy Surprises. All rights reserved.</div>
-          <div>Worldwide gifting with special delivery support in Nepal, Japan, Australia, and India.</div>
+          <div>Worldwide gifting with special support in Nepal, Japan, Australia, and India.</div>
         </div>
       </footer>
     </div>
