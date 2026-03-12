@@ -7,21 +7,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --navy: #1f2a44;
-      --pink: #d47a8d;
-      --pink-dark: #b95c71;
-      --pink-soft: #faf3f5;
+      --rose: #d47a8d;
+      --rose-dark: #b95c71;
+      --rose-soft: #faf3f5;
       --gold: #c69a42;
       --gold-soft: #faf5e9;
       --white: #ffffff;
       --text: #334155;
       --muted: #64748b;
-      --line: #f1d9df;
+      --line: #eadce0;
+      --whatsapp: #25D366;
       --shadow: 0 18px 45px rgba(31, 42, 68, 0.10);
       --radius-xl: 28px;
       --radius-lg: 22px;
@@ -75,7 +74,7 @@
       letter-spacing: 0.24em;
       text-transform: uppercase;
       font-weight: 700;
-      color: var(--pink-dark);
+      color: var(--rose-dark);
       margin-bottom: 14px;
     }
 
@@ -120,7 +119,7 @@
       z-index: 50;
       backdrop-filter: blur(16px);
       background: rgba(255,255,255,0.88);
-      border-bottom: 1px solid rgba(241, 217, 223, 0.75);
+      border-bottom: 1px solid rgba(234, 220, 224, 0.8);
     }
 
     .header-inner {
@@ -145,12 +144,8 @@
       overflow: hidden;
       background: #fff;
       border: 1px solid var(--line);
-      box-shadow: 0 6px 20px rgba(255, 143, 163, 0.14);
+      box-shadow: 0 6px 20px rgba(212, 122, 141, 0.14);
       flex: 0 0 auto;
-    }
-
-    .brand-text {
-      min-width: 0;
     }
 
     .brand-text strong {
@@ -166,7 +161,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.22em;
-      color: var(--pink-dark);
+      color: var(--rose-dark);
       font-weight: 700;
       margin-top: 2px;
     }
@@ -181,7 +176,7 @@
     }
 
     .nav a:hover {
-      color: var(--pink-dark);
+      color: var(--rose-dark);
     }
 
     .btn {
@@ -203,9 +198,9 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
       color: #fff;
-      box-shadow: 0 14px 28px rgba(255, 143, 163, 0.28);
+      box-shadow: 0 14px 28px rgba(212, 122, 141, 0.26);
     }
 
     .btn-secondary {
@@ -216,7 +211,7 @@
     }
 
     .btn-whatsapp {
-      background: #25D366;
+      background: var(--whatsapp);
       color: #fff;
       box-shadow: 0 14px 28px rgba(37, 211, 102, 0.22);
     }
@@ -242,7 +237,7 @@
       gap: 10px;
       background: rgba(255,255,255,0.95);
       border: 1px solid var(--line);
-      color: var(--pink-dark);
+      color: var(--rose-dark);
       padding: 10px 16px;
       border-radius: 999px;
       font-size: 13px;
@@ -302,7 +297,7 @@
 
     .hero-card {
       position: relative;
-      background: linear-gradient(180deg, #fff, #fff6f8);
+      background: linear-gradient(180deg, #fff, #fff8fa);
       border: 1px solid var(--line);
       border-radius: 34px;
       padding: 24px;
@@ -325,13 +320,13 @@
     .floating-badge {
       top: 26px;
       right: 20px;
-      max-width: 200px;
+      max-width: 220px;
     }
 
     .floating-review {
       bottom: 22px;
       left: 20px;
-      max-width: 220px;
+      max-width: 240px;
       animation-delay: 1.2s;
     }
 
@@ -371,7 +366,9 @@
       aspect-ratio: 1 / 1;
     }
 
-    .thumb img {
+    .thumb img,
+    .product-card:hover .product-photo img,
+    .category-card:hover .category-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -381,7 +378,7 @@
     .thumb:hover img,
     .product-card:hover .product-photo img,
     .category-card:hover .category-photo img {
-      transform: scale(1.06);
+      transform: scale(1.05);
     }
 
     .strip {
@@ -405,16 +402,16 @@
       gap: 12px;
       padding: 10px 12px;
       border-radius: 18px;
-      background: linear-gradient(180deg, #fff, #fff7fa);
-      border: 1px solid #f9e7eb;
+      background: linear-gradient(180deg, #fff, #fff8fa);
+      border: 1px solid #f4e8eb;
     }
 
     .icon-dot {
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      background: var(--pink-soft);
-      color: var(--pink-dark);
+      background: var(--rose-soft);
+      color: var(--rose-dark);
       display: grid;
       place-items: center;
       font-size: 18px;
@@ -459,9 +456,9 @@
       gap: 22px;
     }
 
-    .category-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    .category-grid { grid-template-columns: repeat(4, 1fr); }
+    .product-grid { grid-template-columns: repeat(3, 1fr); }
+    .review-grid { grid-template-columns: repeat(3, 1fr); }
 
     .category-card,
     .product-card,
@@ -476,7 +473,8 @@
       box-shadow: 0 12px 28px rgba(31, 42, 68, 0.05);
     }
 
-    .category-card {
+    .category-card,
+    .product-card {
       overflow: hidden;
       transition: transform 0.28s ease, box-shadow 0.28s ease;
     }
@@ -514,8 +512,8 @@
       display: inline-block;
       padding: 8px 12px;
       border-radius: 999px;
-      background: var(--pink-soft);
-      color: var(--pink-dark);
+      background: var(--rose-soft);
+      color: var(--rose-dark);
       font-size: 12px;
       font-weight: 700;
       margin-bottom: 12px;
@@ -532,6 +530,22 @@
     .product-body p {
       font-size: 14px;
       margin-bottom: 16px;
+    }
+
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .chip {
+      background: var(--gold-soft);
+      color: #8c6718;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 10px;
+      border-radius: 999px;
     }
 
     .price-row {
@@ -552,26 +566,6 @@
       font-size: 12px;
       color: var(--muted);
       display: block;
-    }
-
-    .product-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .product-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 14px;
-    }
-
-    .chip {
-      background: var(--gold-soft);
-      color: #9a6b05;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 7px 10px;
-      border-radius: 999px;
     }
 
     .country-wrap {
@@ -637,8 +631,8 @@
       width: 54px;
       height: 54px;
       border-radius: 18px;
-      background: linear-gradient(135deg, var(--pink-soft), #ffe8ee);
-      color: var(--pink-dark);
+      background: linear-gradient(135deg, var(--rose-soft), #fff0f4);
+      color: var(--rose-dark);
       display: grid;
       place-items: center;
       font-size: 20px;
@@ -654,10 +648,6 @@
 
     .steps-card p {
       font-size: 14px;
-    }
-
-    .review-grid {
-      grid-template-columns: repeat(3, 1fr);
     }
 
     .review-card {
@@ -693,9 +683,9 @@
     }
 
     .cta-highlight {
-      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
       color: #fff;
-      box-shadow: 0 18px 36px rgba(255, 143, 163, 0.22);
+      box-shadow: 0 18px 36px rgba(212, 122, 141, 0.22);
       border: none;
     }
 
@@ -735,8 +725,8 @@
     }
 
     .contact-line {
-      background: #fff7fa;
-      border: 1px solid #fbe3e8;
+      background: #fff8fa;
+      border: 1px solid #f2e4e8;
       border-radius: 18px;
       padding: 14px 16px;
     }
@@ -772,11 +762,20 @@
       color: var(--muted);
     }
 
-    .mobile-note {
-      display: none;
-      margin-top: 14px;
-      font-size: 13px;
-      color: var(--muted);
+    .floating-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--whatsapp);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+      box-shadow: 0 16px 30px rgba(37, 211, 102, 0.28);
+      z-index: 90;
     }
 
     @media (max-width: 1080px) {
@@ -812,10 +811,6 @@
 
       .nav {
         display: none;
-      }
-
-      .mobile-note {
-        display: block;
       }
 
       .hero {
@@ -879,6 +874,11 @@
       .cta-highlight h2 {
         font-size: 28px;
       }
+
+      .floating-whatsapp {
+        right: 16px;
+        bottom: 16px;
+      }
     }
   </style>
 </head>
@@ -904,7 +904,7 @@
         <a href="#products">Best Sellers</a>
         <a href="#destinations">Destinations</a>
         <a href="#how-it-works">How It Works</a>
-        <a href="#reviews">Reviews</a>
+        <a href="#why-customers-love-us">Why Choose Us</a>
         <a class="btn btn-primary" href="#contact">Order Now</a>
       </nav>
     </div>
@@ -917,7 +917,7 @@
           <div class="pill">🎁 Premium gifts for women, men, children, families and milestone celebrations</div>
           <h1>Premium gifting for women, men and children — delivered with style.</h1>
           <p>
-            Send Happy Surprises helps you deliver cakes, flowers, hampers, custom gifts and celebration packages across Nepal, Japan, Australia, India and beyond — with a polished, premium and customer-friendly experience for every age group and occasion.
+            Send Happy Surprises offers cakes, flowers, hampers and custom gift experiences for birthdays, anniversaries, family moments and special celebrations across Nepal, Japan, Australia, India and beyond.
           </p>
 
           <div class="hero-actions">
@@ -940,28 +940,27 @@
               <span>WhatsApp & Instagram enquiries</span>
             </div>
           </div>
-          <div class="mobile-note">Tip: replace the WhatsApp number with your real number before publishing.</div>
         </div>
 
         <div class="hero-card reveal">
           <div class="floating-badge">
-            <strong style="display:block;color:var(--navy);font-size:14px;margin-bottom:4px;">Loved for cross-border gifting</strong>
-            <span style="color:var(--muted);font-size:13px;">Ideal for family overseas, anniversaries, birthdays and custom surprises.</span>
+            <strong style="display:block;color:var(--navy);font-size:14px;margin-bottom:4px;">Beautiful gifting, thoughtfully arranged</strong>
+            <span style="color:var(--muted);font-size:13px;">Perfect for birthdays, family celebrations, anniversaries and meaningful surprise moments.</span>
           </div>
 
           <div class="floating-review">
-            <strong style="display:block;color:var(--navy);font-size:14px;margin-bottom:4px;">Fast enquiry support</strong>
-            <span style="color:var(--muted);font-size:13px;">Order via WhatsApp or Instagram in a few simple steps.</span>
+            <strong style="display:block;color:var(--navy);font-size:14px;margin-bottom:4px;">Easy ordering experience</strong>
+            <span style="color:var(--muted);font-size:13px;">Message us on WhatsApp or Instagram and we will help you arrange the perfect gift.</span>
           </div>
 
           <div class="hero-main-photo">
-            <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=1200&q=80" alt="Luxury gift box with flowers and ribbon">
+            <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=1200&q=80" alt="Luxury gift hamper box with ribbon and flowers">
           </div>
 
           <div class="thumb-row">
-            <div class="thumb"><img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=800&q=80" alt="Birthday cake with candles"></div>
-            <div class="thumb"><img src="https://images.unsplash.com/photo-1513267048331-5611cad62e41?auto=format&fit=crop&w=800&q=80" alt="Romantic flowers and gifts"></div>
-            <div class="thumb"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80" alt="Gift hamper basket"></div>
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=80" alt="Elegant rose bouquet"></div>
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=900&q=80" alt="Celebration cake"></div>
+            <div class="thumb"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=900&q=80" alt="Gift hamper basket"></div>
           </div>
         </div>
       </div>
@@ -971,7 +970,7 @@
       <div class="container strip-box reveal">
         <div class="strip-item">
           <div class="icon-dot">💝</div>
-          <div><strong>Thoughtful curation</strong><span>Gifts designed for meaningful moments</span></div>
+          <div><strong>Beautiful presentation</strong><span>Thoughtful gifts for meaningful occasions</span></div>
         </div>
         <div class="strip-item">
           <div class="icon-dot">📍</div>
@@ -979,11 +978,11 @@
         </div>
         <div class="strip-item">
           <div class="icon-dot">📦</div>
-          <div><strong>Custom budgets</strong><span>Flexible gifting options by request</span></div>
+          <div><strong>Flexible ordering</strong><span>Gift options based on your budget and style</span></div>
         </div>
         <div class="strip-item">
           <div class="icon-dot">✨</div>
-          <div><strong>Easy ordering</strong><span>Instagram and WhatsApp support</span></div>
+          <div><strong>Easy to enquire</strong><span>Order via WhatsApp or Instagram</span></div>
         </div>
       </div>
     </section>
@@ -994,13 +993,15 @@
           <div>
             <span class="eyebrow">Collections</span>
             <h2>Shop by occasion and recipient</h2>
-            <p>Beautifully presented gift collections with a premium feel for women, men, children, families and milestone celebrations.</p>
+            <p>Find premium gifting options for birthdays, romance, families, children and custom celebrations.</p>
           </div>
         </div>
 
         <div class="category-grid">
           <article class="category-card reveal">
-            <div class="category-photo"><img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80" alt="Birthday cake and decorations"></div>
+            <div class="category-photo">
+              <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80" alt="Birthday cake and celebration setup">
+            </div>
             <div class="category-body">
               <span class="tag">Birthday Collection</span>
               <h3>Birthday Magic</h3>
@@ -1010,31 +1011,37 @@
           </article>
 
           <article class="category-card reveal">
-            <div class="category-photo"><img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80" alt="Romantic roses and gift box"></div>
+            <div class="category-photo">
+              <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1200&q=80" alt="Romantic flowers and gifts">
+            </div>
             <div class="category-body">
               <span class="tag">Love & Romance</span>
               <h3>Romantic Surprises</h3>
-              <p>Roses, chocolates, anniversary gifts and heartfelt surprise packages for special relationships.</p>
+              <p>Roses, chocolates, anniversary gifts and thoughtful packages for special relationships.</p>
               <a class="btn btn-secondary" href="#products">View ideas</a>
             </div>
           </article>
 
           <article class="category-card reveal">
-            <div class="category-photo"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80" alt="Luxury hamper and celebration gifts"></div>
+            <div class="category-photo">
+              <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80" alt="Luxury hamper and celebration gifts">
+            </div>
             <div class="category-body">
               <span class="tag">Luxury Hampers</span>
               <h3>Curated Hampers</h3>
-              <p>Elegant snack boxes, premium hampers and festive gifting for family, friends and corporate occasions.</p>
+              <p>Elegant snack boxes, premium hampers and festive gifting for family, friends and milestone occasions.</p>
               <a class="btn btn-secondary" href="#products">View ideas</a>
             </div>
           </article>
 
           <article class="category-card reveal">
-            <div class="category-photo"><img src="https://images.unsplash.com/photo-1481391032119-d89fee407e44?auto=format&fit=crop&w=1200&q=80" alt="Personalised custom gifts"></div>
+            <div class="category-photo">
+              <img src="https://images.unsplash.com/photo-1481391032119-d89fee407e44?auto=format&fit=crop&w=1200&q=80" alt="Personalised custom gift box">
+            </div>
             <div class="category-body">
               <span class="tag">Custom Orders</span>
               <h3>Personalised Gifts</h3>
-              <p>Tell us the city, occasion and budget — we’ll help create a custom gift experience for your loved one.</p>
+              <p>Share the city, occasion and budget, and we will help you arrange a customised gifting experience.</p>
               <a class="btn btn-secondary" href="#contact">Enquire now</a>
             </div>
           </article>
@@ -1055,9 +1062,14 @@
 
         <div class="product-grid">
           <article class="product-card reveal">
-            <div class="product-photo"><img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80" alt="Rose bouquet with elegant wrapping"></div>
+            <div class="product-photo">
+              <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80" alt="Rose bouquet with elegant wrapping">
+            </div>
             <div class="product-body">
-              <div class="product-meta"><span class="chip">Flowers</span><span class="chip">For her / family</span></div>
+              <div class="product-meta">
+                <span class="chip">Flowers</span>
+                <span class="chip">For her / family</span>
+              </div>
               <h3>Elegant Rose Bouquet</h3>
               <p>Fresh floral gifting with beautiful wrapping and message card options for birthdays, anniversaries and congratulations.</p>
               <div class="price-row">
@@ -1068,9 +1080,14 @@
           </article>
 
           <article class="product-card reveal">
-            <div class="product-photo"><img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=1200&q=80" alt="Celebration cake with decorative frosting"></div>
+            <div class="product-photo">
+              <img src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?auto=format&fit=crop&w=1200&q=80" alt="Celebration cake with decorative frosting">
+            </div>
             <div class="product-body">
-              <div class="product-meta"><span class="chip">Cakes</span><span class="chip">Kids & adults</span></div>
+              <div class="product-meta">
+                <span class="chip">Cakes</span>
+                <span class="chip">Kids & adults</span>
+              </div>
               <h3>Signature Celebration Cake</h3>
               <p>A joyful birthday essential with stylish presentation, add-on candles, toppers and optional floral styling.</p>
               <div class="price-row">
@@ -1081,9 +1098,14 @@
           </article>
 
           <article class="product-card reveal">
-            <div class="product-photo"><img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=1200&q=80" alt="Luxury gift hamper box with ribbon"></div>
+            <div class="product-photo">
+              <img src="https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=1200&q=80" alt="Luxury gift hamper box with ribbon">
+            </div>
             <div class="product-body">
-              <div class="product-meta"><span class="chip">Hampers</span><span class="chip">Men / women / family</span></div>
+              <div class="product-meta">
+                <span class="chip">Hampers</span>
+                <span class="chip">Men / women / family</span>
+              </div>
               <h3>Luxury Gift Hamper</h3>
               <p>Thoughtfully curated hamper with chocolates, snacks and premium packaging for all kinds of celebrations.</p>
               <div class="price-row">
@@ -1098,30 +1120,30 @@
 
     <section class="section" id="destinations">
       <div class="container country-wrap reveal">
-        <span class="eyebrow" style="color:#ffd8e2;">Delivery Coverage</span>
+        <span class="eyebrow" style="color:#ffe0e8;">Delivery Coverage</span>
         <h2>Special support across four key markets</h2>
-        <p>We support worldwide gifting with dedicated focus on Nepal, Japan, Australia and India. This section helps customers immediately understand your service coverage.</p>
+        <p>We support worldwide gifting with dedicated focus on Nepal, Japan, Australia and India.</p>
 
         <div class="country-grid">
           <article class="country-card">
             <span class="tag">All-over Nepal</span>
             <h3>Nepal</h3>
-            <p>Strong focus on gifts, family celebrations, birthdays, festivals and personalised surprise deliveries across Nepal.</p>
+            <p>Thoughtful gifting support for birthdays, family celebrations, festivals and custom surprise deliveries across Nepal.</p>
           </article>
           <article class="country-card">
             <span class="tag">Selected cities</span>
             <h3>Japan</h3>
-            <p>Thoughtful gifting solutions for loved ones in major Japanese cities, subject to product and delivery availability.</p>
+            <p>Beautiful gifting options for loved ones in major Japanese cities, subject to product and delivery availability.</p>
           </article>
           <article class="country-card">
             <span class="tag">Nationwide support</span>
             <h3>Australia</h3>
-            <p>Reliable birthday gifting, flowers, celebration hampers and special occasion surprise packages across Australia.</p>
+            <p>Reliable gifting support across Australia for birthdays, anniversaries, hampers, flowers and celebration packages.</p>
           </article>
           <article class="country-card">
             <span class="tag">Popular occasions</span>
             <h3>India</h3>
-            <p>Flexible gifting support for special days, family moments, festive gifting and curated celebration packages.</p>
+            <p>Flexible gifting support for special occasions, family moments, festive gifting and curated surprise packages.</p>
           </article>
         </div>
       </div>
@@ -1132,56 +1154,56 @@
         <div class="section-head reveal">
           <div>
             <span class="eyebrow">How It Works</span>
-            <h2>Simple order flow for customers</h2>
-            <p>Make the experience feel easy and friendly so customers know exactly how to place an order without confusion.</p>
+            <h2>Ordering is simple</h2>
+            <p>Choose your gift, send us your details and let us take care of the rest.</p>
           </div>
         </div>
 
         <div class="steps-grid">
           <article class="steps-card reveal">
             <div class="step-no">1</div>
-            <h3>Share your details</h3>
-            <p>Tell us the country, city, occasion, preferred date, recipient and your budget range.</p>
+            <h3>Choose your occasion</h3>
+            <p>Select the type of gift you want and let us know the country, city, occasion and preferred delivery date.</p>
           </article>
           <article class="steps-card reveal">
             <div class="step-no">2</div>
-            <h3>Pick your gift</h3>
-            <p>We recommend suitable flowers, cakes, hampers or custom ideas based on destination and availability.</p>
+            <h3>Send your order</h3>
+            <p>Message us on WhatsApp or Instagram with your requirements, and we will confirm the best available options.</p>
           </article>
           <article class="steps-card reveal">
             <div class="step-no">3</div>
-            <h3>We deliver happiness</h3>
-            <p>Your order is coordinated with care so your loved one receives a beautiful surprise on time.</p>
+            <h3>We arrange the surprise</h3>
+            <p>Once confirmed, we coordinate your gift with care so your loved one receives a beautiful surprise.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="reviews">
+    <section class="section" id="why-customers-love-us">
       <div class="container">
         <div class="section-head reveal">
           <div>
-            <span class="eyebrow">Customer Love</span>
-            <h2>Testimonials that build trust</h2>
-            <p>These sample reviews are included to make the site look real and customer-friendly. Replace them with genuine feedback once you begin taking orders.</p>
+            <span class="eyebrow">Why Customers Choose Us</span>
+            <h2>Thoughtful gifting with a premium feel</h2>
+            <p>Designed to make long-distance gifting feel easy, polished and meaningful.</p>
           </div>
         </div>
 
         <div class="review-grid">
           <article class="review-card reveal">
             <div class="stars">★★★★★</div>
-            <p>Ordering a birthday surprise for my sister in Kathmandu felt easy from overseas. The presentation looked beautiful and very thoughtful.</p>
-            <strong>Aarati, Australia</strong>
+            <p>Easy ordering through WhatsApp and Instagram makes arranging a gift quick and convenient.</p>
+            <strong>Fast and simple communication</strong>
           </article>
           <article class="review-card reveal">
             <div class="stars">★★★★★</div>
-            <p>I wanted something elegant for an anniversary in Japan, and the team guided me through the options quickly. Very warm service.</p>
-            <strong>Rohan, Melbourne</strong>
+            <p>Beautiful gift presentation and carefully selected options make each order feel thoughtful and special.</p>
+            <strong>Premium gifting experience</strong>
           </article>
           <article class="review-card reveal">
             <div class="stars">★★★★★</div>
-            <p>Perfect for sending gifts to family when you live far away. The website feels premium and the ordering process is simple.</p>
-            <strong>Mina, Sydney</strong>
+            <p>Suitable for birthdays, anniversaries, family celebrations and customised gifting across multiple locations.</p>
+            <strong>Flexible for different occasions</strong>
           </article>
         </div>
       </div>
@@ -1191,20 +1213,20 @@
       <div class="container cta-grid">
         <div class="cta-box cta-highlight reveal">
           <span class="eyebrow" style="color:#ffe4ea;">Why choose us</span>
-          <h2>A more personal way to send gifts internationally</h2>
-          <p>Send Happy Surprises is designed for people who want a polished, heartfelt gifting experience for loved ones abroad.</p>
+          <h2>Thoughtful gifting with a premium feel</h2>
+          <p>Send Happy Surprises is designed for customers who want a polished, heartfelt gifting experience for loved ones abroad or at home.</p>
           <ul class="feature-list">
-            <li>Thoughtful gift coordination</li>
-            <li>Flexible budgets and custom options</li>
-            <li>Perfect for overseas families</li>
-            <li>Easy WhatsApp and Instagram ordering</li>
+            <li>Beautifully arranged gift options</li>
+            <li>Flexible budgets and custom orders</li>
+            <li>Suitable for women, men and kids</li>
+            <li>Fast ordering through WhatsApp and Instagram</li>
           </ul>
         </div>
 
         <div class="cta-box contact-card reveal">
           <span class="eyebrow">Contact</span>
           <h2>Ready to place an order?</h2>
-          <p>Contact us directly for premium gifting enquiries, custom orders and surprise delivery coordination.</p>
+          <p>Get in touch for premium gifting enquiries, custom orders and surprise delivery coordination.</p>
 
           <div class="contact-stack">
             <div class="contact-line">
@@ -1236,6 +1258,8 @@
       <div>Premium gifting with special support in Nepal, Japan, Australia and India.</div>
     </div>
   </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/61407769118?text=Hi%20Send%20Happy%20Surprises,%20I%20would%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">✆</a>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
